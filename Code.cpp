@@ -57,7 +57,7 @@ class student
 public:
     void createstudent()
     {
-        clrscr();
+        system("cls");
         cout << "\nNEW STUDENT ENTRY...\n";
         cout << "\nEnter The Admission No. ";
         cin >> admno;
@@ -123,7 +123,7 @@ void writebook()
     fp.open("book.dat", ios::out | ios::app);
     do
     {
-        clrscr();
+        system("cls");
         bk.createbook();
         fp.write((char *)&bk, sizeof(book));
         cout << "\n\nDo you want to add more record...(y/n?) ";
@@ -138,7 +138,7 @@ void writestudent()
     fp.open("student.dat", ios::out | ios::app);
     do
     {
-        clrscr();
+        system("cls");
         st.createstudent();
         fp.write((char *)&st, sizeof(student));
         cout << "\n\nDo you want to add more record...(y/n?) ";
@@ -164,7 +164,6 @@ void displayspb(char n[])
     {
         cout << "\n\nBook does not exist";
     }
-    getch();
 }
 void displaysps(char n[])
 {
@@ -184,13 +183,12 @@ void displaysps(char n[])
     {
         cout << "\n\nStudent does not exist";
     }
-    getch();
 }
 void modifybook()
 {
     char n[6];
     int found = 0;
-    clrscr();
+    system("cls");
     cout << "\n\nMODIFY BOOK RECORD...";
     cout << "\n\nEnter the book no. ";
     cin >> n;
@@ -214,13 +212,12 @@ void modifybook()
     {
         cout << "\n\nRecord Not Found";
     }
-    getch();
 }
 void modifystudent()
 {
     char n[6];
     int found = 0;
-    clrscr();
+    system("cls");
     cout << "\n\nMODIFY STUDENT RECORD...";
     cout << "\n\nEnter the Admission no. ";
     cin >> n;
@@ -244,14 +241,13 @@ void modifystudent()
     {
         cout << "\n\nRecord Not Found";
     }
-    getch();
 }
 
 void deletestudent()
 {
     char n[6];
     int flag = 0;
-    clrscr();
+    system("cls");
     cout << "\n\n\n\tDELETE STUDENT...";
     cout << "\n\nEnter the Admission no> : ";
     cin >> n;
@@ -282,13 +278,12 @@ void deletestudent()
     {
         cout << "\n\nRecord not Found";
     }
-    getch();
 }
 void deletebook()
 {
     char n[6];
     int flag = 0;
-    clrscr();
+    system("cls");
     cout << "\n\n\n\tDELETE BOOK...";
     cout << "\n\nEnter the Book no> : ";
     cin >> n;
@@ -319,16 +314,14 @@ void deletebook()
     {
         cout << "\n\nRecord not Found";
     }
-    getch();
 }
 void displayalls()
 {
-    clrscr();
+    system("cls");
     fp.open("student.dat", ios::in);
     if (!fp)
     {
         cout << "File Could Not Be Open";
-        getch();
         return;
     }
     cout << "\n\n\t\tStudent List\n\n";
@@ -340,16 +333,14 @@ void displayalls()
         st.report();
     }
     fp.close();
-    getch();
 }
 void displayallb()
 {
-    clrscr();
+    system("cls");
     fp.open("book.dat", ios::in);
     if (!fp)
     {
         cout << "File Could Not Be Open";
-        getch();
         return;
     }
     cout << "\n\n\t\tBook List\n\n";
@@ -361,13 +352,12 @@ void displayallb()
         bk.report();
     }
     fp.close();
-    getch();
 }
 void bookissue()
 {
     char sn[6], bn[6];
     int found = 0, flag = 0;
-    clrscr();
+    system("cls");
     cout << "\n\nBOOK ISSUE...";
     cout << "\n\n\tEnter Admission no.";
     cin >> sn;
@@ -412,7 +402,6 @@ void bookissue()
     {
         cout << "Student Record Not Exists...";
     }
-    getch();
     fp.close();
     fp1.close();
 }
@@ -421,7 +410,7 @@ void bookdeposit()
 {
     char sn[6], bn[6];
     int found = 0, flag = 0, day, fine;
-    clrscr();
+    system("cls");
     cout << "\n\nBOOK DEPOSIT...";
     cout << "\n\n\tEnter Admission no. Of Student";
     cin >> sn;
@@ -472,26 +461,21 @@ void bookdeposit()
     {
         cout << "Student Record Not Exists...";
     }
-    getch();
     fp.close();
     fp1.close();
 }
 
 void start()
 {
-    clrscr();
-    gotoxy(35, 11);
+    system("cls");
     cout << "LIBRARY";
-    gotoxy(35, 14);
     cout << "MANAGEMENT";
-    gotoxy(35, 17);
     cout << "SYSTEM";
-    cout << " \n  by: Chahat";
-    getch();
+    cout << " \n  by: Aditya Dixit";
 }
 void adminmenu()
 {
-    clrscr();
+    system("cls");
     int ch2;
     cout << "\n\n\n\tADMINISTRATOR MENU";
     cout << "\n\n\n\t1.CREATE STUDENT RECORD";
@@ -517,7 +501,7 @@ void adminmenu()
         break;
     case 3:
         char num[6];
-        clrscr();
+        system("cls");
         cout << "\n\n\t Please enter admission no.";
         cin >> num;
         displaysps(num);
@@ -537,7 +521,7 @@ void adminmenu()
     case 8:
     {
         char num[6];
-        clrscr();
+        system("cls");
         cout << "\n\n\tPlease enter book no.";
         cin >> num;
         displayspb(num);
@@ -559,18 +543,18 @@ void adminmenu()
 int main()
 {
     char ch;
-    clrscr();
+    system("cls");
     start();
     do
     {
-        clrscr();
+        system("cls");
         cout << "\n\n\n\t MAIN MENU";
         cout << "\n\n\n\t1 BOOK ISSUE";
         cout << "\n\n\n\t2 BOOK DEPOSIT";
         cout << "\n\n\n\t3 ADMINISTRATOR MENU";
         cout << "\n\n\n\t4 EXIT";
         cout << "\n\n\n\t PLEASE SELECT YOUR OPTION(1-4)";
-        ch = getche();
+        ch = getchar();
         switch (ch)
         {
         case '1':
